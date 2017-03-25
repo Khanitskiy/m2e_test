@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <M2E_Test>
+            <version>0.0.1</version>
+        </M2E_Test>
+    </modules>
+    <admin>
+        <routers>
+            <m2etest_admin>
+                <use>admin</use>
+                <args>
+                    <module>M2E_Test</module>
+                    <frontName>m2etest_admin</frontName>
+                </args>
+            </m2etest_admin>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <m2etest module="m2etest">
+                <title>M2e test</title>
+                <sort_order>73</sort_order>
+                <children>
+                    <m2etest_email translate="title" module="m2etest">
+                        <title>Send E-mail to Support</title>
+                        <sort_order>12</sort_order>
+                        <action>m2etest_admin/adminhtml_email</action>
+                    </m2etest_email>
+                    <m2etest_test translate="title" module="m2etest">
+                        <title>Products</title>
+                        <sort_order>17</sort_order>
+                        <action>m2etest_admin/adminhtml_test</action>
+                    </m2etest_test>
+                </children>
+            </m2etest>
+        </menu>
+    </adminhtml>
+    <global>
+        <blocks>
+            <m2etest>
+                <class>M2E_Test_Block</class>
+            </m2etest>
+        </blocks>
+    	<helpers>
+            <m2etest>
+                <class>M2E_Test_Helper</class>
+            </m2etest>
+        </helpers>
+        <models>
+            <m2etest>
+                <class>M2E_Test_Model</class>
+                <resourceModel>m2etest_resource</resourceModel>
+            </m2etest>
+            <m2etest_resource>
+                <class>M2E_Test_Model_Resource</class>
+                <entities>
+                    <table_test>
+                        <table>m2e_test_entities</table>
+                    </table_test>
+                </entities>
+            </m2etest_resource>
+        </models>
+        <resources>
+            <m2etest_setup>
+                <setup>
+                    <module>M2E_Test</module>
+                </setup>
+            </m2etest_setup>
+        </resources>
+    </global>
+</config>
